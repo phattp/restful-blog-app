@@ -5,8 +5,10 @@ var mongoose = require("mongoose");
 var express = require("express");
 var app = express();
 
+var url = process.env.DATABASEURL || "mongodb://localhost/restful_blog_app";
+
 //APP CONFIG
-mongoose.connect("mongodb://localhost/restful_blog_app");
+mongoose.connect(url);
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
